@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="e315d199-b1c5-4d11-8851-fdcad450e634" name="FORTECHN9-PC Mapping">
+      <data-sources db="ff2f46b3-ba97-481c-b264-cbf3d055d708" />
+      <scope>
+        <node kind="database" negative="1">
+          <node kind="schema" negative="1" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+</project>

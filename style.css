@@ -1,0 +1,412 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: auto;
+}
+
+.logo{
+    display: flex;
+    
+}
+
+
+
+.logo a{
+    font-size: 30px;
+    font-weight: 600;
+    color: #808080 !important;
+}
+.logo-image{
+    height: 40px;
+    width: 40px;
+    color: #32c8de;
+}
+
+.nav-link{
+    font-size: 13px;
+    text-decoration: none !important;
+    color: #808080 !important ;
+    font-weight: 800;
+}
+
+.dropdown-item{
+    font-size: 13px;
+    color: #808080;
+    font-weight: 800;
+}
+
+.dropdown-menu{
+    border-color: #32c8de;
+}
+
+.col-md-3.text-end{
+    fill: #32c8de;
+}
+h1{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+p{
+    font-size: 13px;
+}
+
+.block-heading-two h3 span{
+    font-size: 18px;
+    font-weight: 600;
+    border-color: #32c8de !important;
+    padding-bottom: 10px;
+    border-bottom: 3px solid;
+}
+
+.number-count{
+    font-size: 42px;
+    color: #666;
+}
+
+.counter-one hr {
+    width: 35px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-width: 3px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    opacity: 1;
+}
+
+small{
+    font-size: 12px;
+}
+
+.counter-one .counter-item {
+    max-width: 200px;
+    margin: 10px auto;
+}
+
+.counter-one {
+    margin: 20px 0px;
+}
+
+form {
+    line-height: 20px !important;
+    border:  1px solid #eee;
+    border-top: 0px;
+    font-size: 13px;
+}
+
+.navs-tabs-two{
+    padding: 10px 0;
+}
+.row{
+    padding: 10px 10px;
+    border-radius: 10px;
+}
+
+input{
+    width: 100%;
+    opacity: 1; 
+    border:1px solid rgb(196, 193, 193);
+    border-radius: 5px;
+    height: 38px;
+}
+
+.btn{
+    color: #eee;
+    background-color: #32c8de;
+    height: 38px;
+    font-size: 13px;
+    width: 145px;
+}
+
+.btn:hover{
+
+    background-color: #24a4b8;
+    color: #eee;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.form-control{
+    font-size: 13px;
+}
+
+thead{
+    background-color: #DDDDDD;
+    font-size: 13px;
+}
+
+tbody{
+    font-size: 13px;
+}
+.table-UK{
+    background-color: #51d466;
+    color: #eee;
+    font-size: 13px;
+    border: 3px solid #51d466;
+    border-radius: 1px;
+}
+
+td a{
+    text-decoration: none;
+    color: #1faabe;
+}
+
+
+.col-md-3 li a{
+
+    font-size: 13px;
+    text-decoration: none;
+    color: #1faabe;
+}
+
+
+.btn-default{
+    width: 180px;
+    border-radius: 0;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+
+    margin: 20px auto;
+}
+
+.btn-default:hover{
+    background-color: rgb(143, 136, 136);
+}
+
+.table-responsive .table thead{
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
+}
+
+.table-responsive .table tfoot{
+    font-size: 13px;
+}
+
+.number-of-house{
+    background-color: #32c8de; 
+    border: 5px solid #32c8de; 
+    border-radius: 2px;color:#fff;
+}
+
+.foot{
+    background-color: #333333;
+    border-top: 3px solid #32c8de;
+    border-bottom: 2px solid #ccc;   
+}
+
+h5{
+    font-size: 13px;
+    color: #ccc;
+    font-weight: 600;
+}
+.foot .row{
+    margin: 20px 0 0 0 ;
+    font-size: 13px;
+    color: #AAAAAA;
+}
+
+.foot .row li a{
+    text-decoration: none;
+    color: #AAAAAA;
+
+}
+
+.foot .row li{
+    margin: 10px auto;
+}
+
+footer{
+    background-color: #333333;
+}
+
+footer .container{
+    padding:20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-left{
+    display: flex;
+}
+.pull-left{
+    color: #ccc;
+}
+.pull-left a{
+    color: #ccc;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.list-inline{
+    display: flex;
+    font-size: 13px;
+}
+.list-inline li{
+    margin-right: 10px;
+}
+
+.list-inline li a{
+    text-decoration: none;
+    color: #ccc;
+}
+
+.image-table{
+    width: 8em;
+    border-radius: 10px;
+    border: #AAAAAA 1px hidden;
+}
+
+.table{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.float-right{
+    margin: 10px;
+    float: right;
+}
+
+#keywords {
+    margin: 0 auto;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+
+#keywords thead {
+    cursor: pointer;
+    background: #c9dff0;
+}
+#keywords thead tr th {
+    font-weight: bold;
+    padding: 12px 30px;
+    padding-left: 42px;
+}
+#keywords thead tr th span {
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+
+#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+    background: #acc8dd;
+}
+
+#keywords tbody tr {
+    color: #555;
+}
+#keywords tbody tr td {
+    text-align: center;
+    padding: 15px 10px;
+}
+#keywords tbody tr td.lalign {
+    text-align: left;
+}
+
+.fixed-table-toolbar{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-grow: 1;
+    justify-content: end;
+    gap: 15px;
+    margin: 20px auto;
+}
+
+.fixed-table-toolbar .btn-default{
+    width: 80px !important;
+    margin: 0;
+    height: 40px!important;
+    color: white;
+    background-color: #32c8de;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-default:hover{
+    background-color: #1faabe;
+}
+
+.btn-default:active:focus{
+    background-color: #1faabe !important;
+}
+.caret{
+    display: none;
+}
+
+.dropdown-menu input{
+    width: 15px !important;
+    height: 15px !important;
+    margin: 0 !important;
+    color: white !important;
+    background-color: #32c8de !important;
+}
+.dropdown-item-marker{
+    display: flex !important;
+
+}
+
+.dropdown-menu span{
+    margin: 0 !important;
+    font-size: 9px;
+    text-align: center;
+
+}
+
+.columns{
+    margin: 0 !important;
+    height: 40px !important;
+
+}
+
+.search{
+    margin: 0 !important;
+    width: 60%;
+
+}
+
+.search input{
+    height: 40px;
+    border-radius: 4px !important;
+}
+
+#fresh-table .thead-dark{
+    height: 40px;
+}
+
+.bootstrap-table .fixed-table-container .table thead th .sortable{
+    background-position: right;
+
+}
+.th-inner{
+    text-align: center;
+    vertical-align: center;
+    padding: 10px 0;
+    margin: 10px;
+}
+
+.fixed-table-pagination ul{
+    height: 100px !important;
+    top: -80px !important;
+    transform: none!important;
+}
+
+.fixed-table-pagination .active>a{
+    background-color: white;
+    color: #333333;
+}
+
+.fixed-table-pagination .active>a:hover{
+    background-color: white;
+    color: #333333;
+}
+
+.pull-right ul{
+    padding-top: 20px;
+}
+
+.pull-right ul li .page-link{
+    height: 40px !important;
+    text-align: center;
+    font-size: 14px;
+}
