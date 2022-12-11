@@ -263,8 +263,15 @@ footer .container{
 }
 
 .float-right{
+
     margin: 10px;
     float: right;
+}
+
+.float-right.crud{
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
 }
 
 #keywords {

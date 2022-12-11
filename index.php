@@ -3,7 +3,17 @@ require_once  ('databaseConfig.php');
 $object = new databaseConfig();
 $object->startSession();
 $conn = $object->createConnection();
-$sql = "select AM.URL_Image,AM.Name_Amenities,atw.ID_Worker,AM.Descript,wr.Cost_work from [dbo].[Amenities] AM
+
+if (isset($_POST['search-button'])){
+    $a = $_POST['search-bd'];
+    if ($a == null) $a = "";
+    $sql = "select TOP 10 AM.URL_Image,AM.Name_Amenities,atw.ID_Worker,AM.Descript,wr.Cost_work from [dbo].[Amenities] AM
+join [dbo].[Amenities_to_Workers] atw on AM.ID_Amenities = atw.ID_Amenities
+join [dbo].[Workers] wr on wr.ID_Worker = atw.ID_Worker
+where CONCAT(AM.URL_Image,AM.Name_Amenities,atw.ID_Worker,AM.Descript,wr.Cost_work) like '%$a%';";
+    $members = $object->getArrayFromTable($sql,$conn);
+}else
+$sql = "select TOP 10 AM.URL_Image,AM.Name_Amenities,atw.ID_Worker,AM.Descript,wr.Cost_work from [dbo].[Amenities] AM
 join [dbo].[Amenities_to_Workers] atw on AM.ID_Amenities = atw.ID_Amenities
 join [dbo].[Workers] wr on wr.ID_Worker = atw.ID_Worker";
 $members = $object->getArrayFromTable($sql,$conn);
@@ -590,7 +600,12 @@ $members = $object->getArrayFromTable($sql,$conn);
     <div class="container">
         <div class="row">
             <div class="col-md-12 head">
-                <div class="float-right">
+                <div class="float-right crud">
+                    <form method="post" style="display: flex; justify-content: space-between; gap: 20px ">
+                        <button class="btn btn-success" name="search-button">Поиск</button>
+                        <input type="text" class="form-control" name="search-bd"
+                               placeholder="поиск" value="">
+                    </form>
                     <a href="AddService.php" class="btn btn-success"><i class="plus"></i>Добавить услугу</a>
                 </div>
             </div>
@@ -706,37 +721,6 @@ $members = $object->getArrayFromTable($sql,$conn);
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
-<script type="text/javascript">
-    var $table = $('#fresh-table')
-
-    $(function () {
-        $table.bootstrapTable({
-            classes: 'table table-hover table-striped',
-            toolbar: '.toolbar',
-
-            search: true,
-            showRefresh: true,
-            showToggle: true,
-            showColumns: true,
-            pagination: true,
-            striped: true,
-            sortable: true,
-            pageSize: 8,
-            pageList: [8, 10, 25, 50, 100],
-
-            formatShowingRows: function (pageFrom, pageTo, totalRows) {
-                return ''
-            },
-            formatRecordsPerPage: function (pageNumber) {
-                return pageNumber;
-            }
-        })
-        $alertBtn.click(function () {
-            alert('You pressed on Alert')
-        })
-    })
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>

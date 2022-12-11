@@ -97,7 +97,7 @@ $members3 = $object->getArrayFromTable($sqlConnection,$conn);
             <div class="col-md-12 head">
                 <!--Add link-->
                 <div class="float-right">
-                    <a href="Add/AddAmenities.php" class="btn btn-success" style="width: 15em"><i class="plus"></i>Добавить услугу</a>
+                    <a href="Add/AndOrUpdateAmentities.php" class="btn btn-success" style="width: 15em"><i class="plus"></i>Добавить услугу</a>
                 </div>
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
@@ -106,6 +106,7 @@ $members3 = $object->getArrayFromTable($sqlConnection,$conn);
                         <th>Имя услуги</th>
                         <th>Описание</th>
                         <th>Картинка услуги</th>
+                        <th>Изменить/Удалить</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -117,6 +118,10 @@ $members3 = $object->getArrayFromTable($sqlConnection,$conn);
                                 <td><?php echo $row['Name_Amenities']?></td>
                                 <td><?php echo $row['Descript']?></td>
                                 <td><img  class="image-table" src=<?php echo $row['URL_Image']?>></td>
+                                <td>
+                                    <a href="Add/AndOrUpdateAmentities.php?id=<?php echo $row['ID_Amenities']; ?>" class="btn">Изменить</a>
+                                    <a href="Add\userActionAmentities.php?action_type=delete&id=<?php echo $row["ID_Amenities"]; ?>" class="btn" onclick="return confirm('Вы точно хотите удалить услугу ?')">Удалить</a>
+                                </td>
                             </tr>
                         <?php } }else{?>
                         <tr><td colspan="7">NO members(s) found...</td></tr>
