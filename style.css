@@ -417,3 +417,16 @@ footer .container{
     text-align: center;
     font-size: 14px;
 }
+
+.autorization{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.item{
+    width: 30em;
+}

@@ -9,6 +9,7 @@ if ($_SESSION['user']) {
     header('Location: homepage.php');
 }
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,28 +24,32 @@ if ($_SESSION['user']) {
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Авторизация</title>
+    <title>Регистрация</title>
 </head>
 <body>
-
-<form action="vendor/signin.php" method="post">
+<form action="vendor/signup.php" method="post">
     <div class="container">
-        <h4 style="text-align: center">Авторизация</h4>
+        <h4 style="text-align: center">Регистрация</h4>
         <div class="autorization">
             <div class="item">
-                <label>Логин</label>
-                <input type="text" name="email">
+                <label>Почта</label>
+                <input type="text" name="email" placeholder="Введите свою почту, она будет вышим логином">
             </div>
             <div class="item">
                 <label>Пароль</label>
-                <input type="password" name="password">
+                <input type="password" name="password" placeholder="придумайте и введите пароль от аккаунта">
             </div>
             <div class="item">
-                <button class="btn btn-success" type="submit">Войти</button>
+                <label>Подтверждение пароля</label>
+                <input type="password" name="password_confirm" placeholder="подтвердите пароль">
             </div>
-            <p>
-                У вас нет аккаунта? - <a href="registration.php">Зарегистрируйтесь!</a>
-            </p>
+            <div class="item">
+                <label>Имя акканута</label>
+                <input type="text"  name="accauntName" placeholder="Придумайте имя аккаунту">
+            </div>
+            <div class="item">
+                <button class="btn btn-success" type="submit" style="width: 180px">Зарегистрироваться</button>
+            </div>
         </div>
     </div>
     <?php
@@ -54,7 +59,8 @@ if ($_SESSION['user']) {
     unset($_SESSION['message']);
     ?>
 </form>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
