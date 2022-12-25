@@ -25,8 +25,6 @@ $userData = !empty($sessData['userData'])?$sessData['userData']:$workerData;
 unset($_SESSION['sessData']['userData']);
 
 $actionLabel = !empty($_GET['id'])?'Edit':'Add';
-
-
 ?>
 
 <!-- Display status message -->
