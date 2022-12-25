@@ -1,8 +1,8 @@
 <?php
-require_once 'C:\localhost\Lab_01_BootStrap\databaseConfig.php';
+require_once 'C:\localhost\PHP_Crud-and-Autorization\databaseConfig.php';
 $object = new databaseConfig();
 $object->startSession();
-$redirectUrl = "http://localhost:3000/AddService.php";
+$redirectUrl = "http://localhost:3000/homepage.php";
 if (isset($_POST['userSubmit'])){
     $ID_Worker = $_POST['ID_Worker'];
     $FirstName = trim(strip_tags($_POST['FirstName']));

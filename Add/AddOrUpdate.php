@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\localhost\Lab_01_BootStrap\databaseConfig.php';
+require_once 'C:\localhost\PHP_Crud-and-Autorization\databaseConfig.php';
 //start session
 $object = new databaseConfig();
 $object->startSession();
@@ -25,6 +25,8 @@ $userData = !empty($sessData['userData'])?$sessData['userData']:$workerData;
 unset($_SESSION['sessData']['userData']);
 
 $actionLabel = !empty($_GET['id'])?'Edit':'Add';
+
+
 ?>
 
 <!-- Display status message -->
@@ -85,13 +87,14 @@ $actionLabel = !empty($_GET['id'])?'Edit':'Add';
                         <input type="number" min="0" class="form-control" name="CostWork" placeholder="Пожайлуста введите плату за рабочий день"
                                value=<?php echo (int)!empty($userData['Cost_work'])?$userData['Cost_work']:'';?> required = "">
                     </div>
-                    <a href="http://localhost:3000/AddService.php" class="btn btn-secondary">Назад</a>
+                    <a href="http://localhost:3000/Add/AndOrUpdateAmentities.php" class="btn btn-secondary">Назад</a>
                     <input type="hidden" name="ID_Worker" value="<?php echo !empty($workerData['ID_Worker'])? $workerData['ID_Worker']:''; ?>">
                     <input type="submit" name="userSubmit" class="btn btn-success" value="Принять">
                 </form>
             </div>
         </div>
     </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>

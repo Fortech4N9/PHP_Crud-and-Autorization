@@ -13,16 +13,29 @@ $sql = "";
 if (isset($_POST['search-button'])){
     $a = $_POST['search-bd'];
     if ($a == null) $a = "";
-    $sql = "select TOP 10 AM.URL_Image,AM.Name_Amenities,atw.ID_Worker,AM.Descript,wr.Cost_work from [dbo].[Amenities] AM
-join [dbo].[Amenities_to_Workers] atw on AM.ID_Amenities = atw.ID_Amenities
-join [dbo].[Workers] wr on wr.ID_Worker = atw.ID_Worker
-where CONCAT(AM.URL_Image,AM.Name_Amenities,atw.ID_Worker,AM.Descript,wr.Cost_work) like '%$a%';";
+    $sql = "select TOP 10 Am.ID_Amenities,Am.URL_Image,Am.Name_Amenities,Am.Descript,Work.Name_Worker,Work.Surname_Worker,Work.Cost_work from [dbo].[Amenities] Am
+                join [dbo].[Workers] Work on Work.ID_Worker = Am.ID_Worker
+where CONCAT(Am.URL_Image,Am.Name_Amenities,Am.Descript,Work.Name_Worker,Work.Surname_Worker,Work.Cost_work) like '%$a%';";
 }else{
-$sql = "select TOP 10 AM.URL_Image,AM.Name_Amenities,atw.ID_Worker,AM.Descript,wr.Cost_work from [dbo].[Amenities] AM
-join [dbo].[Amenities_to_Workers] atw on AM.ID_Amenities = atw.ID_Amenities
-join [dbo].[Workers] wr on wr.ID_Worker = atw.ID_Worker";}
+$sql = "select TOP 10 Am.ID_Amenities,Am.URL_Image,Am.Name_Amenities,Am.Descript,Work.Name_Worker,Work.Surname_Worker,Work.Cost_work from [dbo].[Amenities] Am
+                join [dbo].[Workers] Work on Work.ID_Worker = Am.ID_Worker";}
+
+if (isset($_POST['between'])){
+    $ot = $_POST['between-1'];
+    $do = $_POST['between-2'];
+    if($do!=null and $ot!=null){
+        $sql = "select TOP 10 Am.ID_Amenities,Am.URL_Image,Am.Name_Amenities,Am.Descript,Work.Name_Worker,Work.Surname_Worker,Work.Cost_work from [dbo].[Amenities] Am
+                join [dbo].[Workers] Work on Work.ID_Worker = Am.ID_Worker
+                where Work.Cost_work between $ot and $do;";
+    }else{
+        $sql = "select TOP 10 Am.ID_Amenities,Am.URL_Image,Am.Name_Amenities,Am.Descript,Work.Name_Worker,Work.Surname_Worker,Work.Cost_work from [dbo].[Amenities] Am
+                join [dbo].[Workers] Work on Work.ID_Worker = Am.ID_Worker;";
+    }
+}
 $members = $object->getArrayFromTable($sql,$conn);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -602,11 +615,18 @@ $members = $object->getArrayFromTable($sql,$conn);
             <div class="col-md-12 head">
                 <div class="float-right crud">
                     <form method="post" style="display: flex; justify-content: space-between; gap: 20px ">
+                        <button class="btn btn-success" name="between">Поиск2</button>
+                        <p> от </p>
+                        <input type="text" class="form-control" name="between-1"
+                               placeholder="поиск" value="">
+                        <p> до </p>
+                        <input type="text" class="form-control" name="between-2"
+                               placeholder="поиск" value="">
                         <button class="btn btn-success" name="search-button">Поиск</button>
                         <input type="text" class="form-control" name="search-bd"
                                placeholder="поиск" value="">
                     </form>
-                    <a href="AddService.php" class="btn btn-success"><i class="plus"></i>Добавить услугу</a>
+                    <a href="Add/AndOrUpdateAmentities.php" class="btn btn-success"><i class="plus"></i>Добавить услугу</a>
                 </div>
             </div>
             <table  id="fresh-table" class="table">
@@ -615,9 +635,11 @@ $members = $object->getArrayFromTable($sql,$conn);
                     <th data-field = "id_service" data-sortable="true">#</th>
                     <th data-field = "picture"  style="text-align: center; padding: 0;vertical-align: center">Картинка</th>
                     <th data-field="Cost" data-sortable="true">Название услуги</th>
-                    <th data-field="id_worker" data-sortable="true">ID Рабочего</th>
                     <th data-field="description" data-sortable="true">Описание</th>
+                    <th data-field="Name_Worker" data-sortable="true">Имя</th>
+                    <th data-field="Surname_Worker" data-sortable="true">Фамилия</th>
                     <th data-field="Cost_work" data-sortable="true">Стоимость</th>
+                    <th>удалить/изменить</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -627,10 +649,14 @@ $members = $object->getArrayFromTable($sql,$conn);
                         <td><?php echo $count?></td>
                         <td><img  class="image-table" src=<?php echo $row['URL_Image']?>></td>
                         <td><?php echo $row['Name_Amenities']?></td>
-                        <td><?php echo $row['ID_Worker']?></td>
                         <td><?php echo $row['Descript']?></td>
+                        <td><?php echo $row['Name_Worker']?></td>
+                        <td><?php echo $row['Surname_Worker']?></td>
                         <td><?php echo $row['Cost_work']?></td>
-                    </tr>
+                        <td><a href="Add\AndOrUpdateAmentities.php?id=<?php echo $row['ID_Amenities']; ?>" class="btn">Изменить</a>
+                            <a href="Add\userActionAmentities.php?action_type=delete&id=<?php echo $row["ID_Amenities"]; ?>" class="btn" onclick="return confirm('Вы точно хотите удалить услугу ?')">Удалить</a>
+                        </td>
+                        </tr>
                 <?php } }else{?>
                     <tr><td colspan="7">NO members(s) found...</td></tr>
                 <?php }?>

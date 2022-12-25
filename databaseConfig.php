@@ -6,7 +6,7 @@ class databaseConfig
     public function createConnection(){
         //sql server configuration
         global $conn;
-        $serverName = "FORTECHN9-PC";
+        $serverName = "DESKTOP-K46E0JH";
         $dbUserName = "";
         $dbPassword = "";
         $dbName = "services";
